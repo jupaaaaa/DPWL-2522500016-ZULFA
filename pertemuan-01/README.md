@@ -16,7 +16,3 @@ Sebagai contoh pada fitur login. Bagian View adalah halaman login itu sendiri ya
 
 6. Kesimpulan P1
 penggunaan arsitektur MVC sangat membantu kita dalam membuat aplikasi web yang rapi dan terstruktur. Dengan memisahkan urusan data, tampilan, dan logika ke dalam tiga bagian yang berbeda, kode program jadi jauh lebih mudah dirawat, mudah diperbaiki jika ada kesalahan, dan memudahkan kita untuk bekerja sama dalam sebuah tim pengembang.
-
-
-
-i
