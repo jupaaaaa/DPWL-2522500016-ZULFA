@@ -62,15 +62,14 @@ index php pada root proyek menjadi satu titik masuk. berkas ini mendefinisikan p
 | home/index | Home | index | - | home/index.php |
 | home/info/mvc | Home | info | mvc | home/info.php |
 | info/routing | Home | inf
-Tambahkan satu baris untuk route hasil Tahap Modifikasi ATM yang dibuat berdasarkan objek atau konteks
+1. Tambahkan satu baris untuk route hasil Tahap Modifikasi ATM yang dibuat berdasarkan objek atau konteks
 | Buku/Pinjam/50 | Buku  | Pinjam| 99 | Buku/pinjam.php |
-aplikasi DPW, kemudian jelaskan pemetaan route → Controller → method → parameter → View.
+2. aplikasi DPW, kemudian jelaskan pemetaan route → Controller → method → parameter → View.
 1.route : ( buku/pinjam/99) | pengguna mengklik tombol pinjam buku alamat url masuk ke front controler | 
 2.controller | router membaca segmen pertama url, yaitu buku, router secara otomatis memanggil class Buku.php 
 3.method | router membaca segmen kedua url, router mengeksekusi fungsi/method di dalam controller untuk menjalankan logika konfirmasi pinjaman. |
 4.parameter | router menangkap seegmen ketiga url, angka 99 dikirm sebagai parameter ID buku kedalam method pinjam(id) untuk mengidentifikasi buku spesifik yang ingin dipinjam.
-5.View | controller menyiapkan data buku ID 99, lalu memanggil fungsi render.
-Angka 99 dikirim sebagai parameter ID buku ke dalam method pinjam untuk mengidentifikasi buku spesifik yang ingin dipinjam.
+5.View | controller menyiapkan data buku ID 99, lalu memanggil fungsi render.|Angka 99 dikirim sebagai parameter ID buku ke dalam method pinjam untuk mengidentifikasi buku spesifik yang ingin dipinjam.
 
 ## 5. Base URL dan Helper
 Jelaskan fungsi base_url() dan site_url(), kemudian berikan contoh penggunaannya pada implementasi P2:
