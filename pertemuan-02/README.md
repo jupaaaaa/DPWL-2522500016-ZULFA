@@ -62,9 +62,9 @@ index php pada root proyek menjadi satu titik masuk. berkas ini mendefinisikan p
 | home/index | Home | index | - | home/index.php |
 | home/info/mvc | Home | info | mvc | home/info.php |
 | info/routing | Home | inf
-1. Tambahkan satu baris untuk route hasil Tahap Modifikasi ATM yang dibuat berdasarkan objek atau konteks
+Tambahkan satu baris untuk route hasil Tahap Modifikasi ATM yang dibuat berdasarkan objek atau konteks
 | Buku/Pinjam/50 | Buku  | Pinjam| 99 | Buku/pinjam.php |
-2. aplikasi DPW, kemudian jelaskan pemetaan route → Controller → method → parameter → View.
+aplikasi DPW, kemudian jelaskan pemetaan route → Controller → method → parameter → View.
 1.route : ( buku/pinjam/99) | pengguna mengklik tombol pinjam buku alamat url masuk ke front controler | 
 2.controller | router membaca segmen pertama url, yaitu buku, router secara otomatis memanggil class Buku.php 
 3.method | router membaca segmen kedua url, router mengeksekusi fungsi/method di dalam controller untuk menjalankan logika konfirmasi pinjaman. |
