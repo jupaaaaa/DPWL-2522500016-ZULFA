@@ -90,6 +90,7 @@ implementasi, dokumentasikan sekurang-kurangnya satu proses debugging yang memua
 Gejala → Penyebab → Perbaikan → Hasil Uji Ulang
 Jika seluruh implementasi langsung berjalan sesuai hasil yang diharapkan, jelaskan hasil pemeriksaan
 sintaks dan pengujian yang telah dilakukan.
+![Gambar 1 - Halaman Utama](dokumentasi/latihan.jpg)
 
 
 ## 8. Bukti Tangkapan Layar
