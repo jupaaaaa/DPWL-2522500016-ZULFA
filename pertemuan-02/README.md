@@ -101,3 +101,5 @@ Sisipkan gambar yang relevan dari folder dokumentasi/ dengan perintah:
 
 ## 9. Kesimpulan P2
 Jelaskan apa yang sudah dapat dilakukan kerangka MVC dan apa yang baru akan ditambahkan pada P3.
+kerangka aplikasi telah berhasil membangun fondasi arsitektur MVC yang mencakup front controller , routing , base controller , controller aplikasi dan view, base url dan helper serta alur request - response tanpa database 
+yang akan ditambahkan pada p3 adalah kerangka fondasi MVC ini tidak diganti dari awal melainkan dikembangkan secara kumulatif dengan menambahkan : komponen awal, koneksi basis data, dan fitur otentikasi & sesi 
