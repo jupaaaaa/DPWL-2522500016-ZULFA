@@ -85,17 +85,12 @@ pada arsitektur MVC yang utuh, terdapat tahap pengelolaan data :
 browser mengirimkan permintaan ke index > router : memetakan url dan meneruskan permintaan ke controller > controller memanggil model untuk meminta atau mengolah data > model : melakukan operasi ke basis data > basis data : mengembalikan data mentah kembali ke controller > controller meneruskan data yang sudah siap ke view > view menggabungkan data dengan template html > response dikirimkan kembali ke browser. 
 
 ## 7. Hasil Pengujian dan Debugging
-Catat skenario pengujian valid dan tidak valid beserta hasilnya. Jika ditemukan kesalahan selama
-implementasi, dokumentasikan sekurang-kurangnya satu proses debugging yang memuat:
-Gejala → Penyebab → Perbaikan → Hasil Uji Ulang
-Jika seluruh implementasi langsung berjalan sesuai hasil yang diharapkan, jelaskan hasil pemeriksaan
-sintaks dan pengujian yang telah dilakukan.
+### Gambar 1. hasil pengujian dan debugging
 ![Gambar 1 - Halaman Utama](dokumentasi/latihan.jpg)
-
 
 ## 8. Bukti Tangkapan Layar
 Sisipkan gambar yang relevan dari folder dokumentasi/ dengan perintah:
-### Gambar 1. Hasil Pengujian Halaman Utama
+### Gambar 1. Hasil Pengujian Halaman utama
 ![Gambar 1 - Halaman Utama](dokumentasi/gambar1.jpg)
 ### Gambar 2. Hasil Pengujian Custom Route
 ![Gambar 2 - Custom Route](dokumentasi/gambar2.jpg)
