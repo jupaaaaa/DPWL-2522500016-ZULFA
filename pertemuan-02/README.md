@@ -86,8 +86,9 @@ browser mengirimkan permintaan ke index > router : memetakan url dan meneruskan 
 
 ## 7. Hasil Pengujian dan Debugging
 ### Gambar 1. hasil pengujian dan debugging
+kode ini untuk membantu menemukan kesalahan sintaks.
 ![Gambar 1 - Halaman Utama](dokumentasi/latihan.jpg)
-
+hasil "no syntax errors detected" menunjukan bahwa berkas yang diperiksa tidak memiliki kesalahan sintaks PHP, pemeriksaan sintaks tidak membuktikan seluruh logika aplikasi benar.
 ## 8. Bukti Tangkapan Layar
 Sisipkan gambar yang relevan dari folder dokumentasi/ dengan perintah:
 ### Gambar 1. Hasil Pengujian Halaman utama
