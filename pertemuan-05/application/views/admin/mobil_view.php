@@ -88,9 +88,11 @@ $formAction = $isEdit
                                             <a href="<?= htmlspecialchars(site_url('admin/mobil/ubah/' . rawurlencode($m['no_plat'])), ENT_QUOTES, 'UTF-8') ?>" class="btn btn-warning btn-xs">
                                                 <i class="fa fa-edit"></i> Ubah
                                             </a>
-                                            <a href="<?= htmlspecialchars(site_url('admin/mobil/hapus/' . rawurlencode($m['no_plat'])), ENT_QUOTES, 'UTF-8') ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin ingin menghapus data mobil ini?');">
+                                           <form action="<?= htmlspecialchars(site_url('admin/mobil/hapus/' . rawurlencode($m['no_plat'])), ENT_QUOTES, 'UTF-8') ?>" method="post" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus data mobil ini?');">
+                                            <button type="submit" class="btn btn-danger btn-xs">
                                                 <i class="fa fa-trash"></i> Hapus
-                                            </a>
+                                            </button>
+                                        </form>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
