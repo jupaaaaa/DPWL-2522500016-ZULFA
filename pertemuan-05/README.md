@@ -1,8 +1,8 @@
 # pertemuan-05
 1. Hasil Pengujian 1
-![Hasil Pengujian 1](dokumentasi/hasilperubahannA.png)
+![Hasil Pengujian 1](dokumentasi/hasilperubahanA.jpeg)
 2. Hasil Pengujian 2
-![Hasil Pengujian 2](dokumentasi/hasilperubahanB.png )
+![Hasil Pengujian 2](dokumentasi/hasilperubahanB.jpeg )
 3. Hasil Pengujian 3
 ![Hasil Pengujian 3](dokumentasi/hasilPengujianC.png)
 4. Hasil Pengujian 4
