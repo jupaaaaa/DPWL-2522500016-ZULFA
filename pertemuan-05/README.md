@@ -7,7 +7,7 @@
 ![Hasil Pengujian 3](dokumentasi/hasilpengujianC.png)
 4. Hasil Pengujian 4
 ![Hasil Pengujian 4](dokumentasi/hasilpengujiankursi.png)
-(dokumentasi/hasilkursi.png)
+![Hasil Pengujian 4](dokumentasi/hasilkursi.jpeg)
 5. Hasil Pengujian 5
 ![Hasil Pengujian 5](dokumentasi/hasilpengujiantambah.png)
 6. Hasil Pengujian 6
