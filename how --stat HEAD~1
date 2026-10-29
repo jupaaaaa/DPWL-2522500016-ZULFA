@@ -1,0 +1,85 @@
+[33mcommit 924c1d3c21130360eb7921fe8e6949b20644e9ab[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: jupaaaaa <2522500016@mahasiswa.atmaluhur.ac.id>
+Date:   Thu Oct 29 13:32:26 2026 +0700
+
+    up
+
+ pertemuan-06/templatemo_559_zay_shop/about.html    |  398 [31m--[m
+ .../assets/css/bootstrap.min.css                   |    7 [31m-[m
+ .../templatemo_559_zay_shop/assets/css/custom.css  |    3 [31m-[m
+ .../assets/css/fontawesome.css                     | 4619 [31m------------------[m
+ .../assets/css/fontawesome.min.css                 |    4 [31m-[m
+ .../assets/css/slick-theme.css                     |  207 [31m-[m
+ .../assets/css/slick-theme.min.css                 |    1 [31m-[m
+ .../assets/css/slick.min.css                       |    2 [31m-[m
+ .../assets/css/templatemo.css                      |  191 [31m-[m
+ .../assets/css/templatemo.min.css                  |    1 [31m-[m
+ .../assets/img/about-hero.svg                      |    1 [31m-[m
+ .../assets/img/ajax-loader.gif                     |  Bin [31m4133[m -> [32m0[m bytes
+ .../assets/img/apple-icon.png                      |  Bin [31m4018[m -> [32m0[m bytes
+ .../assets/img/banner_img_01.jpg                   |  Bin [31m70824[m -> [32m0[m bytes
+ .../assets/img/banner_img_02.jpg                   |  Bin [31m43659[m -> [32m0[m bytes
+ .../assets/img/banner_img_03.jpg                   |  Bin [31m84063[m -> [32m0[m bytes
+ .../assets/img/brand_01.png                        |  Bin [31m48175[m -> [32m0[m bytes
+ .../assets/img/brand_02.png                        |  Bin [31m14192[m -> [32m0[m bytes
+ .../assets/img/brand_03.png                        |  Bin [31m78677[m -> [32m0[m bytes
+ .../assets/img/brand_04.png                        |  Bin [31m95596[m -> [32m0[m bytes
+ .../assets/img/category_img_01.jpg                 |  Bin [31m40874[m -> [32m0[m bytes
+ .../assets/img/category_img_02.jpg                 |  Bin [31m68129[m -> [32m0[m bytes
+ .../assets/img/category_img_03.jpg                 |  Bin [31m154420[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/favicon.ico |  Bin [31m1150[m -> [32m0[m bytes
+ .../assets/img/feature_prod_01.jpg                 |  Bin [31m17920[m -> [32m0[m bytes
+ .../assets/img/feature_prod_02.jpg                 |  Bin [31m40627[m -> [32m0[m bytes
+ .../assets/img/feature_prod_03.jpg                 |  Bin [31m23931[m -> [32m0[m bytes
+ .../assets/img/product_single_01.jpg               |  Bin [31m74022[m -> [32m0[m bytes
+ .../assets/img/product_single_02.jpg               |  Bin [31m82069[m -> [32m0[m bytes
+ .../assets/img/product_single_03.jpg               |  Bin [31m60620[m -> [32m0[m bytes
+ .../assets/img/product_single_04.jpg               |  Bin [31m68001[m -> [32m0[m bytes
+ .../assets/img/product_single_05.jpg               |  Bin [31m58801[m -> [32m0[m bytes
+ .../assets/img/product_single_06.jpg               |  Bin [31m64430[m -> [32m0[m bytes
+ .../assets/img/product_single_07.jpg               |  Bin [31m81032[m -> [32m0[m bytes
+ .../assets/img/product_single_08.jpg               |  Bin [31m71498[m -> [32m0[m bytes
+ .../assets/img/product_single_09.jpg               |  Bin [31m79814[m -> [32m0[m bytes
+ .../assets/img/product_single_10.jpg               |  Bin [31m51548[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_01.jpg |  Bin [31m131538[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_02.jpg |  Bin [31m184331[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_03.jpg |  Bin [31m126077[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_04.jpg |  Bin [31m160028[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_05.jpg |  Bin [31m93388[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_06.jpg |  Bin [31m117790[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_07.jpg |  Bin [31m239414[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_08.jpg |  Bin [31m137536[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_09.jpg |  Bin [31m166339[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_10.jpg |  Bin [31m159536[m -> [32m0[m bytes
+ .../templatemo_559_zay_shop/assets/img/shop_11.jpg |  Bin [31m142283[m -> [32m0[m bytes
+ .../assets/js/bootstrap.bundle.min.js              |    7 [31m-[m
+ .../templatemo_559_zay_shop/assets/js/custom.js    |    0
+ .../assets/js/jquery-1.11.0.min.js                 |    4 [31m-[m
+ .../assets/js/jquery-migrate-1.2.1.min.js          |    2 [31m-[m
+ .../templatemo_559_zay_shop/assets/js/slick.min.js |    1 [31m-[m
+ .../assets/js/templatemo.js                        |   57 [31m-[m
+ .../assets/js/templatemo.min.js                    |    1 [31m-[m
+ .../assets/webfonts/fa-brands-400.eot              |  Bin [31m136822[m -> [32m0[m bytes
+ .../assets/webfonts/fa-brands-400.svg              | 3717 [31m---------------[m
+ .../assets/webfonts/fa-brands-400.ttf              |  Bin [31m136516[m -> [32m0[m bytes
+ .../assets/webfonts/fa-brands-400.woff             |  Bin [31m92136[m -> [32m0[m bytes
+ .../assets/webfonts/fa-brands-400.woff2            |  Bin [31m78460[m -> [32m0[m bytes
+ .../assets/webfonts/fa-regular-400.eot             |  Bin [31m34350[m -> [32m0[m bytes
+ .../assets/webfonts/fa-regular-400.svg             |  801 [31m----[m
+ .../assets/webfonts/fa-regular-400.ttf             |  Bin [31m34052[m -> [32m0[m bytes
+ .../assets/webfonts/fa-regular-400.woff            |  Bin [31m16772[m -> [32m0[m bytes
+ .../assets/webfonts/fa-regular-400.woff2           |  Bin [31m13548[m -> [32m0[m bytes
+ .../assets/webfonts/fa-solid-900.eot               |  Bin [31m204814[m -> [32m0[m bytes
+ .../assets/webfonts/fa-solid-900.svg               | 5028 [31m--------------------[m
+ .../assets/webfonts/fa-solid-900.ttf               |  Bin [31m204528[m -> [32m0[m bytes
+ .../assets/webfonts/fa-solid-900.woff              |  Bin [31m104280[m -> [32m0[m bytes
+ .../assets/webfonts/fa-solid-900.woff2             |  Bin [31m80300[m -> [32m0[m bytes
+ .../assets/webfonts/slick.eot                      |  Bin [31m2048[m -> [32m0[m bytes
+ .../assets/webfonts/slick.svg                      |   14 [31m-[m
+ .../assets/webfonts/slick.ttf                      |  Bin [31m1892[m -> [32m0[m bytes
+ .../assets/webfonts/slick.woff                     |  Bin [31m1380[m -> [32m0[m bytes
+ pertemuan-06/templatemo_559_zay_shop/contact.html  |  300 [31m--[m
+ pertemuan-06/templatemo_559_zay_shop/index.html    |  432 [31m--[m
+ .../templatemo_559_zay_shop/shop-single.html       |  934 [31m----[m
+ pertemuan-06/templatemo_559_zay_shop/shop.html     |  755 [31m---[m
+ 78 files changed, 17487 deletions(-)
