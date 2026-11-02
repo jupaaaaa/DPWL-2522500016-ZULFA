@@ -2,7 +2,7 @@
 // Nama Berkas - application/config/routes.php
 $route = [];
 // Route P2/P3 - dipertahankan, penyesuaian terhadap penulisan nama Controller.
-$route['default_controller'] = 'Home';
+$route['default_controller'] = 'Katalog_controller'; // karena penulisan index.php dihilangkan pada URL aplikasi
 $route['info/(:any)'] = 'Home/info/$1';
 $route['login'] = 'Auth/login';
 $route['auth/login'] = 'Auth/login';
