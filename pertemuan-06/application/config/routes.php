@@ -2,7 +2,11 @@
 // Nama Berkas - application/config/routes.php
 $route = [];
 // Route P2/P3 - dipertahankan, penyesuaian terhadap penulisan nama Controller.
+<<<<<<< HEAD
 $route['default_controller'] = 'Katalog_controller'; // karena penulisan index.php dihilangkan pada URL aplikasi
+=======
+$route['default_controller'] = 'Home';
+>>>>>>> 239704d (Menyiapkan aset Zay Shop untuk P6)
 $route['info/(:any)'] = 'Home/info/$1';
 $route['login'] = 'Auth/login';
 $route['auth/login'] = 'Auth/login';

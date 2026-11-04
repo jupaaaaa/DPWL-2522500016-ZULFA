@@ -5,4 +5,8 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 # Teruskan URL aplikasi ke front controller.
+<<<<<<< HEAD
 RewriteRule ^(.*)$ index.php?route=$1 [QSA,L,B]
+=======
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]
+>>>>>>> 239704d (Menyiapkan aset Zay Shop untuk P6)
