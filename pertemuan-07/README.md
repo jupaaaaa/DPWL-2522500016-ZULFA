@@ -1,5 +1,4 @@
 # pertemuan-07
-# pertemuan-05
 1. "Mengintegrasikan tombol keranjang pada halaman detail kendaraan"
 !["Mengintegrasikan tombol keranjang pada halaman detail kendaraan"](dokumentasi/p1.png) 
 ![uji 2](dokumentasi/p12.png)
