@@ -23,3 +23,4 @@
 10. "Membuat halaman konfirmasi dan menguji checkout transaksi"
 !["Membuat halaman konfirmasi dan menguji checkout transaksi"](dokumentasi/p11.png)
 ![uji2](dokumentasi/p112.png)
+
