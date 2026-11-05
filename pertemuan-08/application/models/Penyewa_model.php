@@ -42,21 +42,26 @@ no_hp,
 almt_lngkp,
 ft_ktp,
 ft_sim_a
-) VALUES (?, ?, ?, ?, ?, ?, NULL, NULL)";
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $this->db->prepare($sql);
     if (!$stmt) {
       throw new RuntimeException(
         'Query registrasi penyewa gagal disiapkan.'
       );
     }
+    // Foto bersifat opsional (registrasi penyewa tidak mengirim foto).
+    $ftKtp = $data['ft_ktp'] ?? null;
+    $ftSimA = $data['ft_sim_a'] ?? null;
     $stmt->bind_param(
-      'ssssss',
+      'ssssssss',
       $data['user_plg'],
       $data['sandi'],
       $data['nik'],
       $data['nm_lngkp'],
       $data['no_hp'],
-      $data['almt_lngkp']
+      $data['almt_lngkp'],
+      $ftKtp,
+      $ftSimA
     );
     $success = $stmt->execute();
     $stmt->close();
@@ -234,29 +239,37 @@ WHERE user_plg = ?";
     return $rows;
   }
 
-  // P8: ubah data oleh admin.
+  // P8: ubah data oleh admin (termasuk referensi foto KTP/SIM A).
   public function updateByAdmin(
     string $userPlg,
     string $nik,
     string $nama,
     string $noHp,
     string $alamat,
+    ?string $ftKtp,
+    ?string $ftSimA,
     ?string $passwordHash
   ): bool {
     if ($passwordHash !== null) {
       $stmt = $this->db->prepare(
         "UPDATE t_penyewa
-         SET nik=?, nm_lngkp=?, no_hp=?, almt_lngkp=?, sandi=?
+         SET nik=?, nm_lngkp=?, no_hp=?, almt_lngkp=?, ft_ktp=?, ft_sim_a=?, sandi=?
          WHERE user_plg=?"
       );
-      $stmt->bind_param('ssssss', $nik, $nama, $noHp, $alamat, $passwordHash, $userPlg);
+      if (!$stmt) {
+        throw new RuntimeException('Query ubah penyewa gagal disiapkan.');
+      }
+      $stmt->bind_param('ssssssss', $nik, $nama, $noHp, $alamat, $ftKtp, $ftSimA, $passwordHash, $userPlg);
     } else {
       $stmt = $this->db->prepare(
         "UPDATE t_penyewa
-         SET nik=?, nm_lngkp=?, no_hp=?, almt_lngkp=?
+         SET nik=?, nm_lngkp=?, no_hp=?, almt_lngkp=?, ft_ktp=?, ft_sim_a=?
          WHERE user_plg=?"
       );
-      $stmt->bind_param('sssss', $nik, $nama, $noHp, $alamat, $userPlg);
+      if (!$stmt) {
+        throw new RuntimeException('Query ubah penyewa gagal disiapkan.');
+      }
+      $stmt->bind_param('sssssss', $nik, $nama, $noHp, $alamat, $ftKtp, $ftSimA, $userPlg);
     }
     $success = $stmt->execute();
     $stmt->close();
@@ -267,6 +280,9 @@ WHERE user_plg = ?";
   public function delete(string $userPlg): bool
   {
     $stmt = $this->db->prepare("DELETE FROM t_penyewa WHERE user_plg = ?");
+    if (!$stmt) {
+      throw new RuntimeException('Query hapus penyewa gagal disiapkan.');
+    }
     $stmt->bind_param('s', $userPlg);
     $success = $stmt->execute();
     $stmt->close();

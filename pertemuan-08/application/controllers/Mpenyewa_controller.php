@@ -1,8 +1,10 @@
 <?php
-// P8: Manajemen Penyewa (CRUD oleh admin)
+// P8: Manajemen Penyewa (CRUD oleh admin) - pola mengikuti Mobil_controller.
 class Mpenyewa_controller extends Controller
 {
   private Penyewa_model $model;
+
+  private const FIELD_FOTO = ['ft_ktp', 'ft_sim_a'];
 
   public function __construct()
   {
@@ -32,7 +34,7 @@ class Mpenyewa_controller extends Controller
     }
 
     $in = $this->readInput();
-    $password = $_POST['sandi'] ?? '';
+    $password = (string) ($_POST['sandi'] ?? '');
 
     $error = $this->validateInput($in, $password, false);
     if ($error === null && $this->model->findByUserPlg($in['user_plg']) !== null) {
@@ -43,6 +45,22 @@ class Mpenyewa_controller extends Controller
       return;
     }
 
+    // Unggah foto (opsional). Jika salah satu gagal, file yang sudah masuk dibersihkan.
+    $uploaded = [];
+    $foto = ['ft_ktp' => null, 'ft_sim_a' => null];
+    foreach (self::FIELD_FOTO as $field) {
+      $up = $this->uploadFoto($field);
+      if (!$up['success']) {
+        $this->hapusFoto($uploaded);
+        $this->render('tambah', $in, $up['error']);
+        return;
+      }
+      $foto[$field] = $up['filename'];
+      if ($up['filename'] !== null) {
+        $uploaded[] = $up['filename'];
+      }
+    }
+
     try {
       $ok = $this->model->create([
         'user_plg'   => $in['user_plg'],
@@ -51,16 +69,20 @@ class Mpenyewa_controller extends Controller
         'nm_lngkp'   => $in['nm_lngkp'],
         'no_hp'      => $in['no_hp'],
         'almt_lngkp' => $in['almt_lngkp'],
+        'ft_ktp'     => $foto['ft_ktp'],
+        'ft_sim_a'   => $foto['ft_sim_a'],
       ]);
     } catch (Throwable $e) {
       error_log('Tambah penyewa gagal: ' . $e->getMessage());
       $ok = false;
     }
     if (!$ok) {
-      $this->render('tambah', $in, 'Data penyewa gagal disimpan.');
+      $this->hapusFoto($uploaded);
+      $this->render('tambah', $in, 'Data penyewa gagal disimpan. Periksa username dan NIK (mungkin sudah terdaftar).');
       return;
     }
 
+    // PRG: setelah POST berhasil, redirect ke halaman daftar.
     set_flash_message('success', 'Data penyewa berhasil ditambahkan.');
     header('Location: ' . site_url('admin/mpenyewa'));
     exit;
@@ -88,12 +110,35 @@ class Mpenyewa_controller extends Controller
 
     $in = $this->readInput();
     $in['user_plg'] = $userPlg; // kunci dari route, bukan dari form
-    $password = $_POST['sandi'] ?? '';
+    $password = (string) ($_POST['sandi'] ?? '');
 
     $error = $this->validateInput($in, $password, true);
     if ($error !== null) {
-      $this->render('ubah', $in, $error);
+      $this->render('ubah', array_merge($penyewa, $in), $error);
       return;
+    }
+
+    // Foto lama dipertahankan bila tidak ada file baru.
+    $foto = [
+      'ft_ktp'   => $penyewa['ft_ktp'] ?? null,
+      'ft_sim_a' => $penyewa['ft_sim_a'] ?? null,
+    ];
+    $uploaded = [];
+    $fotoLama = [];
+    foreach (self::FIELD_FOTO as $field) {
+      $up = $this->uploadFoto($field);
+      if (!$up['success']) {
+        $this->hapusFoto($uploaded);
+        $this->render('ubah', array_merge($penyewa, $in), $up['error']);
+        return;
+      }
+      if ($up['filename'] !== null) {
+        $uploaded[] = $up['filename'];
+        if (!empty($penyewa[$field])) {
+          $fotoLama[] = $penyewa[$field];
+        }
+        $foto[$field] = $up['filename'];
+      }
     }
 
     $hash = $password !== '' ? password_hash($password, PASSWORD_DEFAULT) : null;
@@ -105,6 +150,8 @@ class Mpenyewa_controller extends Controller
         $in['nm_lngkp'],
         $in['no_hp'],
         $in['almt_lngkp'],
+        $foto['ft_ktp'],
+        $foto['ft_sim_a'],
         $hash
       );
     } catch (Throwable $e) {
@@ -112,9 +159,13 @@ class Mpenyewa_controller extends Controller
       $ok = false;
     }
     if (!$ok) {
-      $this->render('ubah', $in, 'Data penyewa gagal diperbarui.');
+      $this->hapusFoto($uploaded);
+      $this->render('ubah', array_merge($penyewa, $in), 'Data penyewa gagal diperbarui. Periksa NIK (mungkin sudah dipakai).');
       return;
     }
+
+    // Foto lama baru dihapus setelah database berhasil diperbarui.
+    $this->hapusFoto($fotoLama);
 
     set_flash_message('success', 'Data penyewa berhasil diperbarui.');
     header('Location: ' . site_url('admin/mpenyewa'));
@@ -154,10 +205,10 @@ class Mpenyewa_controller extends Controller
     }
 
     // Hapus file foto KTP/SIM hanya setelah baris database terhapus.
-    $this->hapusFoto([
-      ['ft_ktp', $penyewa['ft_ktp'] ?? null],
-      ['ft_sim_a', $penyewa['ft_sim_a'] ?? null],
-    ]);
+    $this->hapusFoto(array_filter([
+      $penyewa['ft_ktp'] ?? null,
+      $penyewa['ft_sim_a'] ?? null,
+    ]));
 
     set_flash_message('success', 'Data penyewa berhasil dihapus.');
     header('Location: ' . site_url('admin/mpenyewa'));
@@ -169,11 +220,11 @@ class Mpenyewa_controller extends Controller
   private function readInput(): array
   {
     return [
-      'user_plg'   => trim($_POST['user_plg'] ?? ''),
-      'nik'        => trim($_POST['nik'] ?? ''),
-      'nm_lngkp'   => trim($_POST['nm_lngkp'] ?? ''),
-      'no_hp'      => trim($_POST['no_hp'] ?? ''),
-      'almt_lngkp' => trim($_POST['almt_lngkp'] ?? ''),
+      'user_plg'   => trim((string) ($_POST['user_plg'] ?? '')),
+      'nik'        => trim((string) ($_POST['nik'] ?? '')),
+      'nm_lngkp'   => trim((string) ($_POST['nm_lngkp'] ?? '')),
+      'no_hp'      => trim((string) ($_POST['no_hp'] ?? '')),
+      'almt_lngkp' => trim((string) ($_POST['almt_lngkp'] ?? '')),
     ];
   }
 
@@ -186,6 +237,7 @@ class Mpenyewa_controller extends Controller
       'mode'            => $mode,
       'penyewa_dipilih' => $dipilih,
       'error'           => $error,
+      'extra_css'       => 'assets/css/penyewa.css',
     ]);
   }
 
@@ -195,8 +247,8 @@ class Mpenyewa_controller extends Controller
     if (!$isEdit && !preg_match('/\A[A-Za-z0-9._-]{1,15}\z/', $in['user_plg'])) {
       return 'Username harus 1–15 karakter: huruf, angka, titik, garis bawah, atau tanda hubung.';
     }
-    if (!$isEdit && strlen($password) < 8) {
-      return 'Password minimal 8 karakter.';
+    if (!$isEdit && (strlen($password) < 8 || strlen($password) > 72)) {
+      return 'Password harus 8–72 karakter.';
     }
     if ($isEdit && $password !== '' && (strlen($password) < 8 || strlen($password) > 72)) {
       return 'Password baru harus 8–72 karakter (kosongkan jika tidak diganti).';
@@ -219,19 +271,72 @@ class Mpenyewa_controller extends Controller
     return null;
   }
 
-  // Pola nama file sama dengan Penyewa_controller::hapusFotoPenyewa().
-  private function hapusFoto(array $items): void
+  // Unggah satu foto (ft_ktp / ft_sim_a) ke uploads/penyewa/.
+  // Validasi: error unggah, ukuran (1 byte - 5 MB), MIME asli (finfo), dan getimagesize().
+  private function uploadFoto(string $field): array
+  {
+    $gagal = fn(string $msg) => ['success' => false, 'filename' => null, 'error' => $msg];
+
+    if (!in_array($field, self::FIELD_FOTO, true)) {
+      return $gagal('Field foto tidak valid.');
+    }
+    $label = $field === 'ft_ktp' ? 'Foto KTP' : 'Foto SIM A';
+
+    if (!isset($_FILES[$field]) || ($_FILES[$field]['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_NO_FILE) {
+      return ['success' => true, 'filename' => null, 'error' => null];
+    }
+    $file = $_FILES[$field];
+    if (($file['error'] ?? UPLOAD_ERR_NO_FILE) !== UPLOAD_ERR_OK) {
+      return $gagal($label . ': unggah gagal. Periksa ukuran file dan konfigurasi PHP.');
+    }
+    if (
+      !isset($file['tmp_name'], $file['size']) ||
+      !is_uploaded_file($file['tmp_name']) ||
+      (int) $file['size'] < 1 ||
+      (int) $file['size'] > 5 * 1024 * 1024
+    ) {
+      return $gagal($label . ' harus berukuran lebih dari 0 byte dan maksimal 5 MB.');
+    }
+
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($file['tmp_name']);
+    $allowed = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp'];
+    if (!isset($allowed[$mime]) || @getimagesize($file['tmp_name']) === false) {
+      return $gagal($label . ' harus berformat JPEG, PNG, atau WEBP yang valid.');
+    }
+
+    $dir = dirname(APPPATH) . DIRECTORY_SEPARATOR . 'uploads'
+      . DIRECTORY_SEPARATOR . 'penyewa' . DIRECTORY_SEPARATOR;
+    if (!is_dir($dir) && !mkdir($dir, 0755, true) && !is_dir($dir)) {
+      return $gagal('Folder penyimpanan foto penyewa tidak dapat dibuat.');
+    }
+    if (!is_writable($dir)) {
+      return $gagal('Folder penyimpanan foto penyewa tidak dapat ditulis.');
+    }
+
+    try {
+      $filename = $field . '_' . date('YmdHis') . '_' . bin2hex(random_bytes(8)) . '.' . $allowed[$mime];
+    } catch (Throwable $e) {
+      return $gagal('Nama file foto gagal dibuat.');
+    }
+    if (!move_uploaded_file($file['tmp_name'], $dir . $filename)) {
+      return $gagal($label . ' gagal dipindahkan ke folder penyimpanan.');
+    }
+    return ['success' => true, 'filename' => $filename, 'error' => null];
+  }
+
+  // Hapus file foto. Hanya nama file berpola buatan uploadFoto() yang boleh dihapus.
+  private function hapusFoto(array $filenames): void
   {
     $dir = dirname(APPPATH) . DIRECTORY_SEPARATOR . 'uploads'
       . DIRECTORY_SEPARATOR . 'penyewa' . DIRECTORY_SEPARATOR;
 
-    foreach ($items as [$field, $filename]) {
-      if (!is_string($filename) || $filename === '') {
-        continue;
-      }
-      $pattern = '/^' . preg_quote($field, '/') .
-        '_\d{10,14}_[a-f0-9]{12,16}\.(jpg|jpeg|png|webp)$/';
-      if (preg_match($pattern, $filename) && is_file($dir . $filename)) {
+    foreach ($filenames as $filename) {
+      if (
+        is_string($filename) &&
+        preg_match('/^(ft_ktp|ft_sim_a)_\d{14}_[a-f0-9]{16}\.(jpg|png|webp)$/', $filename) &&
+        is_file($dir . $filename)
+      ) {
         @unlink($dir . $filename);
       }
     }

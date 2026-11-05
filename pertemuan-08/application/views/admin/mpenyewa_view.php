@@ -36,6 +36,9 @@ $tampilFoto = function ($nama, string $alt, string $kelas = 'foto-thumb') use ($
 };
 ?>
 
+<!-- CSS tema biru halaman Manajemen Penyewa (langsung dimuat di view ini) -->
+<link rel="stylesheet" href="<?= $e(base_url('assets/css/penyewa.css')) ?>?v=<?= (int) @filemtime(dirname(APPPATH) . '/assets/css/penyewa.css') ?>">
+
 <div class="content-wrapper penyewa-page">
   <section class="content-header">
     <h1>Manajemen Penyewa <small>Kelola data penyewa</small></h1>
