@@ -39,3 +39,7 @@ $route['transaksi/hapus/(:any)'] = 'Transaksi_controller/hapus/$1';
 $route['transaksi/checkout'] = 'Transaksi_controller/checkout';
 $route['admin/penyewa'] = 'Penyewa_controller/index';
 // uts
+$route['admin/mpenyewa'] = 'Mpenyewa_controller/index';
+$route['admin/mpenyewa/tambah'] = 'Mpenyewa_controller/tambah';
+$route['admin/mpenyewa/ubah/(:any)'] = 'Mpenyewa_controller/ubah/$1';
+$route['admin/mpenyewa/hapus/(:any)'] = 'Mpenyewa_controller/hapus/$1';
