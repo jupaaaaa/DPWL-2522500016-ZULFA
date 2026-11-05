@@ -38,3 +38,5 @@ $route['transaksi/hapus'] = 'Transaksi_controller/hapus';
 $route['transaksi/hapus/(:any)'] = 'Transaksi_controller/hapus/$1';
 $route['transaksi/checkout'] = 'Transaksi_controller/checkout';
 $route['admin/penyewa'] = 'Penyewa_controller/index';
+// uts
+$route['admin/manajemen penyewa'] = 'manajemen_Penyewa_controller/index';

@@ -54,8 +54,8 @@ search"></i>
         </a>
       </li>
       <li>
-        <a href="<?= htmlspecialchars(site_url('admin/penyewal'), ENT_QUOTES, 'UTF-8') ?>">
-          <i class="fa fa-child"></i> <span>Manajemen penyewa</span>
+        <a href="<?= htmlspecialchars(site_url('admin/penyewa'), ENT_QUOTES, 'UTF-8') ?>">
+          <i class="fa fa-child"></i> <span>Manajemen Penyewa</span>
         </a>
       </li>
     </ul>
