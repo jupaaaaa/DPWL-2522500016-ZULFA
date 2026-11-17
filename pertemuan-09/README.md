@@ -32,7 +32,7 @@ saya menutup akses langsung ke bukti pembayaran dengan membuat uploads\bayar\.ht
 5. Sertakan tangkapan layar hasil pembayaran diterima dan ditolak
 ![Gambar 1.1 - diterima dihalaman admin](dokumentasi/diterimadmin.png)
 ![Gambar 1.2 - ditolak dihalaman admin](dokumentasi/ditolakadm.png)
-![Gambar 1.3 - ditolak dihalaman admin](dokumentasi/ditolakadm2.png)
+![Gambar 1.3 - ditolak dihalaman admin](dokumentasi/dtolakadm2.png)
 ![Gambar 2.1 - diterima dihalaman penyewa](dokumentasi/telahterimpw.png)
 ![Gambar 2.2 - ditolak dihalaman penyewa](dokumentasi/ditolakpw.png)
 
