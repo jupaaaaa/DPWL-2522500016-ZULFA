@@ -14,26 +14,47 @@ saya membuat token CSRF dengan membuat application\helpers\csrf_helper.php
 menambahkann 6 baris route baru pertemuan-09\application\config\routes.php
 saya menutup akses langsung ke bukti pembayaran dengan membuat uploads\bayar\.htaccess
 2. Sertakan hasil pengujian skenario pembayaran dan verifikasi.
+Gambar 1 - Halaman Utama
 ![Halaman Utama - Halaman Utama](dokumentasi/p1.png)
+Gambar 2 - halaman pembayaran penyewa 
 ![halaman pembayaran penyewa - halaman pembayaran penyewa](dokumentasi/menunggu.png)
+Gambar 3 - ditolak atau diterima
 ![diterima atau ditolak](dokumentasi/diterimatolak.png)
+Gambar 4 - bukti terima dan meunggu verifikasi
 ![Gambar 4 - bukti terima dan meunggu verifikasi](dokumentasi/buktiterima.png)
+Gambar 5 - diterima dihalaman admin
 ![Gambar 5 - diterima dihalaman admin](dokumentasi/diterimadmin.png)
+Gambar 6 - diterima dihalaman penyewa
 ![Gambar 6 - diterima dihalaman penyewa](dokumentasi/telahterimpw.png)
+
 3. Sertakan tangkapan layar halaman pembayaran penyewa.
+Gambar 1 - halaman pembayaran penyewa
 ![Gambar 1 - halaman pembayaran penyewa](dokumentasi/menunggu.png)
+Gambar 2 - mengunggah bukti terima dan meunggu verifikasi
 ![Gambar 2 - mengunggah bukti terima dan meunggu verifikasi](dokumentasi/menungguverif.png)
+Gambar 3 - sudah ada bukti terima dan meunggu verifikasi
 ![Gambar 3 - sudah ada bukti terima dan meunggu verifikasi](dokumentasi/buktiterima.png)
+Gambar 4 - sudah diterima
 ![Gambar 4 - sudah diterima ](dokumentasi/telahterimpw.png)
+
 4. Sertakan tangkapan layar daftar dan detail verifikasi admin
+Gambar 1 - Halaman Utama
 ![Gambar 1 - Halaman Utama](dokumentasi/p1.png)
+Gambar 2 - diterima atau ditolak
 ![Gambar 2 - diterima atau ditolak](dokumentasi/diterimatolak.png)
+Gambar 3 - diterima dihalaman admin
 ![Gambar 3 - diterima dihalaman admin](dokumentasi/diterimadmin.png)
+
 5. Sertakan tangkapan layar hasil pembayaran diterima dan ditolak
+Gambar 1.1 - diterima dihalaman admin
 ![Gambar 1.1 - diterima dihalaman admin](dokumentasi/diterimadmin.png)
+Gambar 1.2 - ditolak dihalaman admin
 ![Gambar 1.2 - ditolak dihalaman admin](dokumentasi/ditolakadm.png)
+Gambar 1.3 - ditolak dihalaman admin
 ![Gambar 1.3 - ditolak dihalaman admin](dokumentasi/dtolakadm2.png)
+Gambar 2.1 - diterima dihalaman penyewa
 ![Gambar 2.1 - diterima dihalaman penyewa](dokumentasi/telahterimpw.png)
+Gambar 2.2 - ditolak dihalaman penyewa
 ![Gambar 2.2 - ditolak dihalaman penyewa](dokumentasi/ditolakpw.png)
 
 
