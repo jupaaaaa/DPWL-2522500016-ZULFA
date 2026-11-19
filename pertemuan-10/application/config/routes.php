@@ -50,4 +50,8 @@ $route['pembayaran/bukti'] = 'Pembayaran_controller/bukti';
 $route['admin/pembayaran'] = 'Mpembayaran_controller/index';
 $route['admin/pembayaran/detail'] = 'Mpembayaran_controller/detail';
 $route['admin/pembayaran/verifikasi'] = 'Mpembayaran_controller/verifikasi';
-
+// route p10
+$route['admin/pembayaran/pelunasan'] = 'Pembayaran_controller/pelunasanIndex'; 
+$route['admin/pembayaran/pelunasan/proses/(:any)'] = 'Pembayaran_controller/prosesPelunasan/$1'; 
+$route['admin/pembayaran/dokumen/(:any)'] = 'Pembayaran_controller/dokumenTransaksi/$1'; 
+$route['admin/pembayaran/pelunasan/(:any)'] = 'Pembayaran_controller/pelunasanDetail/$1'; 

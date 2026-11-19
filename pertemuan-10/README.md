@@ -17,7 +17,17 @@ nim : 2522500016
 fitur P9 berfungsi dengan baik dan tampil 
 4. Tahapan pengembangan P10.
 1.tahap awal menambahkan status lunas di database pada transaksi p10.
-
+2.a. Penambahan method pelunasanIndex(). 
+b. Penambahan method pelunasanDetail(). 
+c. Penambahan method prosesPelunasan(). 
+d. Penambahan method dokumenTransaksi(). 
+e. Pemertahanan fungsi pembayaran P9.
+3.- Penambahan route daftar pelunasan. 
+- Penambahan route detail pelunasan. 
+- Penambahan route proses pelunasan. 
+- Penambahan route dokumen transaksi. 
+- Integrasi menu Pelunasan pada sidebar admin. 
+- Hasil pemeriksaan route dan navigasi. 
 5. Daftar berkas yang ditambahkan atau diubah.
 6. Perubahan struktur basis data.
 7. Hasil pengujian setiap tahap.
